@@ -32,16 +32,7 @@
             <segmentedBarItem title="Past Events"/>
         </segmentedBar>
         {#if currentCalendar === 0}
-            <scrollView scrollbarIndicatorVisible={false}>
-                <stackLayout>
-                    {#each upcomingEvents as event}
-                        <label class="eventLabel">{event.date}</label>
-                        <label class="eventLabel">{event.time}</label>
-                        <label class="eventLabel">{event.title}</label>
-                        <label class="eventLabel last">{event.group}</label>
-                    {/each}
-                </stackLayout>
-            </scrollView>
+            <EventList events={upcomingEvents}/>
         {:else if currentCalendar === 1}
             <label margin=10>Events you booked</label>
         {:else}
@@ -52,6 +43,7 @@
 </page>
 
 <script>
+    import EventList from './components/EventList.svelte';
     const myGroups = [
         {
             name: 'Sunday Book Club',
@@ -124,10 +116,5 @@
         margin: 5;
         color: white;
     }
-    .eventLabel {
-        margin-left: 10;
-    }
-    .eventLabel.last {
-        margin-bottom: 10;
-    }
+
 </style>
