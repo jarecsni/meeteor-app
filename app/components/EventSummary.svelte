@@ -1,7 +1,7 @@
-<label class="eventLabel">{date}</label>
-<label class="eventLabel">{time}</label>
-<label class="eventLabel">{title}</label>
-<label class="eventLabel last">{group}</label>
+<label for="" class="eventLabel">{date}</label>
+<label for="" class="eventLabel">{time}</label>
+<label for="" class="eventLabel">{title}</label>
+<label for="" class="eventLabel last">{group}</label>
 
 <script>
     export let date, time, title, group;

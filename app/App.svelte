@@ -1,28 +1,11 @@
 <page>
     <actionBar title="Meeteor" />
     <stackLayout>
-        <label class="header">Your Groups</label>
+        <label for="" class="header">Your Groups</label>
         <scrollView orientation="horizontal" scrollbarIndicatorVisible={false}>
-            <stackLayout orientation="horizontal" class="groupContainer">
-                {#each myGroups as group}
-                    <stackLayout class="groupPanel">
-                        <image 
-                            src={group.thumbnail}
-                            class="groupThumbnail"
-                        >
-                            {group.thumbnail}
-                        </image>
-                        <label
-                            textWrap={true}
-                            class="groupLabel"
-                        >
-                            {group.name}
-                        </label>
-                    </stackLayout>
-                {/each}
-            </stackLayout>
+            <GroupList groups={myGroups} />
         </scrollView>
-        <label class="header">Your Calendar</label>
+        <label for="" class="header">Your Calendar</label>
         <segmentedBar class="calendar"
             selectedIndex={currentCalendar}
             on:selectedIndexChange={onCalendarTypeChange}
@@ -34,9 +17,9 @@
         {#if currentCalendar === 0}
             <EventList events={upcomingEvents}/>
         {:else if currentCalendar === 1}
-            <label margin=10>Events you booked</label>
+            <label for="" margin=10>Events you booked</label>
         {:else}
-            <label margin=10>Past events</label>
+            <label for="" margin=10>Past events</label>
         {/if}
 
     </stackLayout>
@@ -44,6 +27,7 @@
 
 <script>
     import EventList from './components/EventList.svelte';
+    import GroupList from './components/GroupList.svelte';
     const myGroups = [
         {
             name: 'Sunday Book Club',
@@ -96,25 +80,12 @@
         font-size: 24;
         margin: 10;
     }
-    .groupContainer {
-        height: 200;
-        margin: 2;
-    }
-    .groupPanel {
-        background-color: lightgray;
-        margin: 4;
-    }
-    .groupThumbnail {
-        width: 100;
-    }
-    .groupLabel {
-        margin-left: 4;
-        width: 100;
-        height: 50;
+    .calendar {
+        margin: 5;
+        color: white;
     }
     .calendar {
         margin: 5;
         color: white;
     }
-
 </style>
