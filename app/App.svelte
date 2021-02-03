@@ -2,9 +2,9 @@
     <actionBar title="Meeteor" />
     <bottomNavigation>
     <tabStrip>
-        <tabStripItem title="Explorer"/>
-        <tabStripItem title="Home"/>
-        <tabStripItem title="Alerts"/>
+        <tabStripItem title="Explorer" class="page-tab"/>
+        <tabStripItem title="Home" class="page-tab"/>
+        <tabStripItem title="Alerts" class="page-tab"/>
     </tabStrip>
     <tabContentItem>
         <ExplorerPage />
@@ -24,3 +24,8 @@
     import AlertsPage from './components/pages/Alerts.svelte'
 </script>
 
+<style>
+    .page-tab {
+        font-size: 13;
+    }
+</style>
